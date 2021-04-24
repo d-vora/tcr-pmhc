@@ -28,7 +28,7 @@ class Net(nn.Module):
         torch.nn.init.kaiming_uniform_(self.conv2.weight)
         self.conv2_bn = nn.BatchNorm1d(100)
         
-        self.fc1 = nn.Linear(2600, num_classes)
+        self.fc1 = nn.Linear(2600, num_classes) ###
         torch.nn.init.xavier_uniform_(self.fc1.weight)
         
     def forward(self, x):

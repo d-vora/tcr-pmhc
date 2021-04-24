@@ -17,7 +17,8 @@ from sklearn.metrics import accuracy_score
 class Net(nn.Module):
     num_classes = 1
     def __init__(self,  num_classes):
-        super(Net, self).__init__()       
+        super(Net, self).__init__()
+        self.bn0 = nn.BatchNorm1d(54)       
         self.conv1 = nn.Conv1d(in_channels=54, out_channels=100, kernel_size=3, stride=2, padding=1)
         torch.nn.init.kaiming_uniform_(self.conv1.weight)
         self.pool = nn.MaxPool1d(kernel_size=2, stride=2)
@@ -30,7 +31,8 @@ class Net(nn.Module):
         self.fc1 = nn.Linear(2600, num_classes)
         torch.nn.init.xavier_uniform_(self.fc1.weight)
         
-    def forward(self, x):      
+    def forward(self, x):
+        x = self.bn0(x)      
         x = self.pool(F.relu(self.conv1(x)))
         x = self.conv1_bn(x)
         

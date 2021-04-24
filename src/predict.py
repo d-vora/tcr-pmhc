@@ -45,7 +45,7 @@ test_ds = []
 for i in range(len(X_test)):
     test_ds.append([np.transpose(X_test[i])])
 
-bat_size = 64
+bat_size = 128
 print("\nNOTE:\nSetting batch-size to", bat_size)
 test_ldr = torch.utils.data.DataLoader(test_ds,batch_size=bat_size, shuffle=False)
 

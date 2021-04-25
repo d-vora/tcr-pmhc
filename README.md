@@ -9,6 +9,17 @@ This challenge focuses on the binding between a T cell and its targets. The abil
 ![logo](logo.png)
 
 
+## We won the T-cell binding prediction challenge (TCR-pMHC) by utilizing a hybrid CNN-LSTM model. 
+![bench](1benchmark.png)
+
+
+## We won the Mentor's Pick Award alongwith the People's Pick Award
+![award](award.jpeg)
+
+### Please see the hackathon2021.iynb for the code we developed.
+
+### Original instruction for this repository are Given Below
+
 
 At prediction time, you are given a zip file using the `--input-zip` argument. 
 For each `*.npz` file, output your prediction. 
@@ -16,9 +27,6 @@ For each `*.npz` file, output your prediction.
 ## Data and example model
 The training dataset can be found in the data/training_set.zip file, and should be extracted to the data/train folder.
 An example CNN model is available as a notebook and in src directory.
-
-~~The dataset can be found at~~
-~~https://www.dropbox.com/sh/uudmmyjo4feem2f/AAChSkluA0PkLdW7y2tw1-lca?dl=0~~
 
 ### Example Output
 You code should output a file called `predictions.csv` in the following format:

@@ -16,7 +16,7 @@ This challenge focuses on the binding between a T cell and its targets. The abil
 ## We won the Mentor's Pick Award alongwith the People's Pick Award
 ![award](award.jpg)
 
-### Please see the hackathon2021.iynb for the code we developed.
+### Please see the hackathon2021.ipynb for the code we developed.
 
 ### Original instruction for this repository are Given Below
 

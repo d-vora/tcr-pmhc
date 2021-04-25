@@ -30,18 +30,18 @@ class Net(nn.Module):
         
 
 
-        # ###RNN ##############################################################################
-        # ### try RNN here
+        ###RNN ##############################################################################
+        ### try RNN here
+        self.rnn = nn.LSTM(input_size=100,hidden_size=26,num_layers=4, batch_first=True)
+        #self.rnn = nn.GRU(input_size=100,hidden_size=26,num_layers=4, batch_first=True)
 
-        # self.rnn = nn.GRU(input_size=100,hidden_size=26,num_layers=4, batch_first=True)
 
 
-
-        #self.fc1 = nn.Linear(676, num_classes)
+        self.fc1 = nn.Linear(676, num_classes)
         ######################################################
 
 
-        self.fc1 = nn.Linear(2600, num_classes) ###
+        #self.fc1 = nn.Linear(2600, num_classes) ###
         torch.nn.init.xavier_uniform_(self.fc1.weight)
         
     def forward(self, x):
@@ -55,19 +55,20 @@ class Net(nn.Module):
 
 
         ##########################################
-        # x = x.transpose_(2, 1)
-        # #### lstm
-        # #x = x.transpose(1, 2).transpose(0, 1)
+        x = x.transpose_(2, 1)
+        #### lstm
+        #x = x.transpose(1, 2).transpose(0, 1)
 
-        # x, states = self.rnn(x)
-        # #x = x.transpose(0, 1).transpose(1, 2)
-        # ###
+        #x, states = self.rnn(x)
+        x, (h, c) = self.rnn(x)
+        #x = x.transpose(0, 1).transpose(1, 2)
+        ###
         
-        # x = x.reshape(x.size(0), -1)
+        x = x.reshape(x.size(0), -1)
         #########################################
 
 
-        x = x.view(x.size(0), -1)
+        #x = x.view(x.size(0), -1)
         x = torch.sigmoid(self.fc1(x))
         
         return x
